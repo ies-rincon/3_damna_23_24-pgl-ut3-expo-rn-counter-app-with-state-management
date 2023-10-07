@@ -1,12 +1,5 @@
 import React, { createContext, useContext, useState } from "react";
 
-interface CounterContextType {
-  clickCounter: number;
-  handleRefresh: () => void;
-  handleIncrement: () => void;
-  handleDecrement: () => void;
-}
-
 const CounterContext = createContext<CounterContextType | undefined>(undefined);
 
 export const useCounter = () => {

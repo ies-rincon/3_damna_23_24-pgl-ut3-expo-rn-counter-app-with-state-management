@@ -9,6 +9,7 @@ import { SplashScreen, Stack } from "expo-router";
 import { useEffect } from "react";
 import { useColorScheme } from "react-native";
 import { CounterProvider } from "../context/CounterContext"; // Importa el proveedor
+import { LanguageAppProvider } from "../context/LanguageAppContext"; // Importa el proveedor
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -52,11 +53,13 @@ function RootLayoutNav() {
 
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-      <CounterProvider>
-        <Stack>
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        </Stack>
-      </CounterProvider>
+      <LanguageAppProvider>
+        <CounterProvider>
+          <Stack>
+            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          </Stack>
+        </CounterProvider>
+      </LanguageAppProvider>
     </ThemeProvider>
   );
 }

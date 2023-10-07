@@ -1,23 +1,15 @@
-import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { Tabs } from "expo-router";
-import { TouchableOpacity, useColorScheme } from "react-native";
-import Colors from "../../constants/Colors";
+import { useColorScheme } from "react-native";
+import { HeaderRightTabs, TabBarIcon } from "./_components";
 import { useCounter } from "../../context/CounterContext";
-
-/**
- * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
- */
-function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>["name"];
-  color: string;
-}) {
-  return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
-}
+import { useLanguageApp } from "../../context/LanguageAppContext";
+import Colors from "../../constants/Colors";
+import Languages from "../../constants/Languages";
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
-  const { handleRefresh, clickCounter } = useCounter();
-
+  const { handleRefresh } = useCounter();
+  const { languageApp, onChangeLanguageApp } = useLanguageApp();
   return (
     <Tabs
       screenOptions={{
@@ -27,27 +19,29 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: `Page 1: ${clickCounter}`,
+          title: `${Languages[languageApp].tab} 1`,
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
           headerRight: () => (
-            <TouchableOpacity
-              onPress={handleRefresh}
-              style={{ marginRight: 15 }}
-            >
-              <FontAwesome
-                name="refresh"
-                size={25}
-                color={Colors[colorScheme ?? "light"].text}
-              />
-            </TouchableOpacity>
+            <HeaderRightTabs
+              color={Colors[colorScheme ?? "light"].text}
+              onChangeLanguage={onChangeLanguageApp}
+              onRefreshCounter={handleRefresh}
+            />
           ),
         }}
       />
       <Tabs.Screen
         name="two"
         options={{
-          title: "Page 2",
+          title: `${Languages[languageApp].tab} 2`,
           tabBarIcon: ({ color }) => <TabBarIcon name="bus" color={color} />,
+          headerRight: () => (
+            <HeaderRightTabs
+              color={Colors[colorScheme ?? "light"].text}
+              onChangeLanguage={onChangeLanguageApp}
+              onRefreshCounter={handleRefresh}
+            />
+          ),
         }}
       />
     </Tabs>
