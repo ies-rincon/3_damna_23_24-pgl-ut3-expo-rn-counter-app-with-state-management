@@ -1,4 +1,4 @@
-# 3DAMNA - PGL > UT3 > Counter App With State Management
+# 3DAMNA - PGL > UT3 > Counter App With State Management (Context API)
 
 Esta es una aplicación de contador simple desarrollada en Expo. La aplicación muestra un contador y permite al usuario aumentar o disminuir el valor del contador haciendo clic en botones.
 
