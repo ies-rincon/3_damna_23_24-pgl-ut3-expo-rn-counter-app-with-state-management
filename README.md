@@ -1,11 +1,12 @@
 # 3DAMNA - PGL > UT3 > Counter App With State Management (Context API)
 
-Esta es una aplicación de contador simple desarrollada en Expo. La aplicación muestra un contador y permite al usuario aumentar o disminuir el valor del contador haciendo clic en botones.
+Esta es una aplicación de contador simple desarrollada en Expo. La aplicación muestra un contador y permite al usuario aumentar o disminuir el valor del contador haciendo clic en botones. También se puede alternar el idioma entre Español e Inglés.
 
 ## Características
 
 - Muestra un contador en pantalla.
 - Permite al usuario aumentar o disminuir el contador haciendo clic en botones.
+- Alternar idioma entre español e inglés.
 - La aplicación utiliza el manejo de estados con la Context API de React para gestionar el estado del contador de manera global y compartida entre componentes.
 
 ## Context API de React
